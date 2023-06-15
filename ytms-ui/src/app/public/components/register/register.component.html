@@ -1,0 +1,168 @@
+<div style="justify-content: flex-end; display: flex;">
+   <img
+      src="https://sts.yash.com/adfs/portal/illustration/illustration.png?id=183128A3C941EDE3D9199FA37D6AA90E0A7DFE101B37D10B4FEDA0CF35E11AFD"
+      alt="Girl in a jacket" width="60%" height="100vh" style="height: 100vh;">
+   <div class="wrapper rounded bg-white"
+      style="overflow: auto;height: 100vh; padding: 30px 45px;box-shadow: 5px 25px 35px #3535356b;">
+      <div class=" h3" style="display: grid;justify-items: center;">SignUp</div>
+      <form [formGroup]="registerForm">
+         <div class="form">
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">First Name</label>
+                  <input type="text" formControlName="firstName" placeholder="First Name" class="form-control"
+                     required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('firstName')?.touched && this.registerForm.get('firstName')?.hasError('required')">
+                     First Name is required
+                  </div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('firstName')?.touched && this.registerForm.get('firstName')?.hasError('minlength')">
+                     minimum 4 characters is required</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('firstName')?.touched && this.registerForm.get('firstName')?.hasError('maxlength')">
+                     maximum 20 characters is allowed</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('firstName')?.touched && this.registerForm.get('firstName')?.hasError('pattern')">
+                     First Name is allow only alphanumeric characters</div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Last Name</label>
+                  <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('lastName')?.touched && this.registerForm.get('lastName')?.hasError('required')">
+                     Last Name is required
+                  </div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('lastName')?.touched && this.registerForm.get('lastName')?.hasError('minlength')">
+                     minimum 3 characters is required</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('lastName')?.touched && this.registerForm.get('lastName')?.hasError('maxlength')">
+                     maximum 20 characters is allowed</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('lastName')?.touched && this.registerForm.get('lastName')?.hasError('pattern')">
+                     Last Name is allow only alphanumeric characters</div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Email</label>
+                  <input type="email" formControlName="email" placeholder="Email" class="form-control" />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('required')">
+                     Email is required</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('email')">
+                     Email must be a valid</div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Phone Number</label>
+                  <input type="tel" formControlName="phoneNumber" placeholder="Phone Number" class="form-control" />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('phoneNumber')?.touched && this.registerForm.get('phoneNumber')?.hasError('required')">
+                     Phone Number is required</div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Birthday</label>
+                  <input type="date" formControlName="birthday" placeholder="Birthday" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('birthday')?.touched && this.registerForm.get('birthday')?.hasError('required')">
+                     Birthday is required</div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <div>
+                     <label style="font-size: small; margin-bottom: 0rem;">Gender</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" formControlName="gender" type="radio" value="female" checked />
+                     <label class="form-check-label">Female</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" formControlName="gender" type="radio" value="male" />
+                     <label class="form-check-label">Male</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Employee Id</label>
+                  <input type="text" formControlName="empId" placeholder="Employee Id" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('empId')?.touched && this.registerForm.get('empId')?.hasError('required')">
+                     Employee Id is required</div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">experience</label>
+                  <input type="number" formControlName="experience" placeholder="Experience" class="form-control"
+                     required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('experience')?.touched && this.registerForm.get('experience')?.hasError('required')">
+                     Experience is required</div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Project</label>
+                  <input type="text" formControlName="project" placeholder="Project" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('project')?.touched && this.registerForm.get('project')?.hasError('required')">
+                     Project is required</div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Location</label>
+                  <input type="text" formControlName="location" placeholder="Location" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('location')?.touched && this.registerForm.get('location')?.hasError('required')">
+                     Location is required</div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Password</label>
+                  <input type="text" formControlName="password" placeholder="Password" class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.hasError('required')">
+                     Password is required</div>
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.hasError('pattern')">
+                     A password should be contain one uppercase,lowercase letter.It must contain a special character (@,
+                     $, !, &, etc) and length must be greater than or equal to 8 characters.
+                  </div>
+               </div>
+               <div class="form-outline col-md-6 mt-3">
+                  <label style="font-size: small; margin-bottom: 0rem;">Confirm Password</label>
+                  <input type="text" formControlName="passwordConfirm" placeholder="Confirm Password"
+                     class="form-control" required />
+                  <div class="invalid-feedback"
+                     *ngIf="this.registerForm.get('passwordConfirm')?.touched && this.registerForm.get('passwordConfirm')?.hasError('required')">
+                     Password Confirmation is required</div>
+                  <div class="invalid-feedback" *ngIf="this.registerForm.hasError('passwordsNotMatching')">
+                     Passwords are not matching!
+                  </div>
+               </div>
+            </div>
+            <div class="my-3">
+               <label style="font-size: small; margin-bottom: 0rem;">Designation</label>
+               <select class="form-control" formControlName="designation">
+                  <option [ngValue]="null" selected disabled> Select Designation </option>
+                  <option *ngFor="let e of designationList" [value]="e.value">
+                     {{e.name}}
+                  </option>
+               </select>
+               <div class="invalid-feedback"
+                  *ngIf="this.registerForm.get('designation')?.touched && this.registerForm.get('designation')?.hasError('required')">
+                  Designation is required</div>
+            </div>
+            <!-- Submit button -->
+            <button type="button" (click)="register()" [disabled]="!registerForm.valid"
+               class="col-md-12 mt-md-0 mt-3 btn btn-primary btn-block mb-4">Sign Up</button>
+            <!-- Register buttons -->
+            <div class="text-center">
+               <p>already a member? <a [routerLink]="['../login']">Login</a></p>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>

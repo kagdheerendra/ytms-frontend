@@ -1,0 +1,33 @@
+<div class="card-header">
+    <div style="justify-content: space-between; display: flex;">
+        <!-- <h4>Training Request Form</h4> -->
+        <span style="font-weight: 700; margin-top: 0.4em;">Training Request Form</span>
+
+        <!-- <div class="input-group mb-3" style="width: 30%;">
+            <input type="text" class="form-control" placeholder="Search" aria-label="search"
+                aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div> -->
+
+        <div class="row height d-flex justify-content-center align-items-center" style="width: 60%;">
+            <div class="col-md-6">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control form-input" [(ngModel)]="searchValue" placeholder="Search anything...">
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-light" (click)="createTrf()"> <i class='bx bx-plus-circle'
+                style="color: #293e40;cursor: pointer;font-size: 1.5rem;"></i>
+        </button>
+    </div>
+</div>
+<div class="card-body">
+    <ag-grid-angular style="height: calc(100vh - 28vh); width:100%;" class="ag-theme-alpine" [rowData]="rowData"
+    [quickFilterText]="searchValue" [columnDefs]="columnDefs" [gridOptions]="gridOptions" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>

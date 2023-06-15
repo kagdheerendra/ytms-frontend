@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl:"http://localhost:8080",
+  signupUrl : "/useraccess/add-user",
+  loginUrl : "/useraccess/login",
+  getTrlList : "/trf/getAllTrf",
+  createTrf : "/trf/create",
+  getByTrfId : "/trf/getById",
+  updateTrf : "/trf/update"
 };
 
 /*

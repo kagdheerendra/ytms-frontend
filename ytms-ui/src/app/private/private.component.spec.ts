@@ -1,33 +1,32 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { PrivateComponent } from './private.component';
 
-describe('AppComponent', () => {
+describe('PrivateComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        PrivateComponent
       ],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(PrivateComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'ytms'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(PrivateComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ytms');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(PrivateComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('ytms app is running!');

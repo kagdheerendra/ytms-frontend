@@ -1,0 +1,125 @@
+<div class="card-header">
+    <div style="justify-content: space-between; display: flex;">
+        <span style="font-weight: 700">{{headerValue}}</span>
+    </div>
+</div>
+<div class="card-body" style="max-height: calc(100vh - 30vh); overflow-y: auto; overflow-x: hidden;">
+    <div class="height-100 bg-light">
+        <form [formGroup]="trfForm">
+            <div class="row" style="margin-bottom: 1em;">
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Training Title</label>
+                    <input type="text" formControlName="trainingTitle" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('trainingTitle')?.touched && this.trfForm.get('trainingTitle')?.hasError('required')">
+                        Training Title is required
+                    </div>
+                </div>
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Training Type</label>
+                    <input type="text" formControlName="trainingType" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('trainingType')?.touched && this.trfForm.get('trainingType')?.hasError('required')">
+                        Training type is required
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Resource Type</label>
+                    <input type="text" formControlName="resourceType" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('resourceType')?.touched && this.trfForm.get('resourceType')?.hasError('required')">
+                        Resource type is required
+                    </div>
+                </div>
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Duration</label>
+                    <input type="number" formControlName="duration" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('duration')?.touched && this.trfForm.get('duration')?.hasError('required')">
+                        Duration is required
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Purpose Of Training</label>
+                    <input type="text" formControlName="purposeOfTraining" class="form-control">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 1em;">
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Project Name</label>
+                    <input type="text" formControlName="projectName" class="form-control">
+                </div>
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">No. Of Participants</label>
+                    <input type="number" formControlName="noOfParticipants" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('noOfParticipants')?.touched && this.trfForm.get('noOfParticipants')?.hasError('required')">
+                        No. of participants is required
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Initiated From</label>
+                    <input type="text" formControlName="initiatedFrom" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('initiatedFrom')?.touched && this.trfForm.get('initiatedFrom')?.hasError('required')">
+                        Initiated from is required
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">Start Date</label>
+                    <input type="date" formControlName="startDate" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('startDate')?.touched && this.trfForm.get('startDate')?.hasError('required')">
+                        Start Date is required
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label style="font-size: small; margin-bottom: 0rem;">End Date</label>
+                    <input type="date" formControlName="endDate" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="this.trfForm.get('endDate')?.touched && this.trfForm.get('endDate')?.hasError('required')">
+                        End Date is required
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <div class="card">
+            <div class="card-header" style="justify-content: space-between; display: flex;">
+                <span style="font-weight: 700">Associates</span>
+                <!-- <i (click)="uploadAssociate()" class='bx bx-upload' style="color: #293e40;
+                font-size: 1.6rem;cursor: pointer;"></i> -->
+                <div class="file btn btn-outline-dark btn-sm">
+                    <input style="opacity: 0;position: absolute;" type="file" name="file"
+                        (change)="onFileChanged($event)" [(ngModel)]="fileValue" #fileInput
+                        [disabled]="mode === 'view'" />
+                    <i style="cursor: pointer;" class="fa fa-upload" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="card-body">
+                <ag-grid-angular style="height: calc(100vh - 63vh); width:100%;" class="ag-theme-alpine"
+                    [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowData]="rowData"
+                    [rowSelection]="'multiple'" [animateRows]="true" [gridOptions]="gridOptions"
+                    (gridReady)="onGridReady($event)"></ag-grid-angular>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-footer">
+    <div class="row">
+        <div class="col" style="display: flex;justify-content: flex-start;">
+            <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="col" style="justify-content: end;display: flex;">
+            <button *ngIf="mode === 'create'" type="button" class="btn btn-outline-secondary"
+                [disabled]="!trfForm.valid" (click)="submit()">Submit</button>
+            <button *ngIf="mode === 'edit' " type="button" class="btn btn-outline-secondary" [disabled]="!trfForm.valid"
+                (click)="submit()">Update</button>
+        </div>
+    </div>
+</div>

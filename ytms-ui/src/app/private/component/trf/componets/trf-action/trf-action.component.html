@@ -1,0 +1,12 @@
+<div style="display: flex; justify-content: space-around;">
+    <!-- <button type="button" class="btn btn-light"> <i class="fa fa-ellipsis-v" aria-hidden="true"
+            style="color: #293e40; cursor: pointer;"></i>
+    </button> -->
+    <button type="button" class="btn btn-light" (click) = "viewTrf()"> <i class="fa fa-eye" aria-hidden="true"
+            style="color: #293e40; cursor: pointer;"></i>
+    </button>
+    <button *ngIf="params.data.status === 'PENDING'" type="button" class="btn btn-light" (click) = "editTrf()"> <i class="fa-regular fa-pen-to-square"
+            style="color: #293e40; cursor: pointer;"></i>
+    </button>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="body" #body>
+    <div id="body-pd" #bodypd>
+        <header #header class="header" id="header" style="border-bottom: 5px solid #5a7f71; background-color : #293e40;">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" #headertoggle></i> </div>
+            <div id="tool" style="justify-content: flex-end; display: flex; padding-top: 0.4em;">
+                <div style="justify-content: space-between; display: flex;">
+                    <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+                    <div style="padding: 0.4em;"><span style="color: white;">Dheerendra kag</span></div>
+                </div>
+                <div class="header_toggle" style="margin-left: 0em;"><i style="font-size: 1.2em;margin-top: 0.2em;"
+                        class="bx bx-help-circle nav_icon useTool" aria-hidden="true"></i></div>
+                <div class="header_toggle" style="margin-left: 0em;"><i style="font-size: 1.2em;margin-top: 0.2em;"
+                        class="bx bx-cog nav_icon useTool" aria-hidden="true"></i></div>
+            </div>
+        </header>
+        <div #navbar class="l-navbar" id="nav-bar" style="background-color : #293e40;">
+            <nav class="nav">
+                <div>
+                    <a class="nav_logo">
+                        <i class='bx bx-layer nav_logo-icon'></i>
+                        <span class="nav_logo-name">YTMS</span>
+                    </a>
+                    <div class="nav_list"> 
+                        <a class="nav_link" routerLinkActive="active" [routerLink] = "['dashboard']"> <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">Dashboard</span> </a> 
+                        <a class="nav_link" routerLinkActive="active" [routerLink] = "['trainer']" style="cursor: pointer;"> <i
+                                class='bx bx-user nav_icon'></i> <span class="nav_name">Trainer</span> </a> 
+                        <a class="nav_link" routerLinkActive="active" [routerLink] = "['trf']"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                                class="nav_name" style="display: block;width: 150px;word-wrap: break-word;">TRF</span></a> 
+                        <a class="nav_link" routerLinkActive="active" [routerLink] = "['training']" style="cursor: pointer;"> <i class='bx bx-code nav_icon'></i> <span
+                                class="nav_name">Training</span> </a> 
+                        <a class="nav_link" routerLinkActive="active" [routerLink] = "['summary']" style="cursor: pointer;"> <i
+                                class='bx bxs-report nav_icon'></i> <span class="nav_name">Training Summary</span> </a>
+                    </div>
+                </div>
+                <a class="nav_link" style="cursor: pointer;"> <i class='bx bx-log-out nav_icon' (click) = "logOut()"></i> <span
+                        class="nav_name">SignOut</span> </a>
+            </nav>
+        </div>
+        <div class="card">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
