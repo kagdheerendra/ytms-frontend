@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
           this.toastrService.success('Login Successfully!', 'Success');
           this.authService.storeToken(res.authToken, "");
           this.router.navigateByUrl('/private');
+        }else {
+          this.toastrService.warning(res.message, 'Warning');
         }
       },
         err => {

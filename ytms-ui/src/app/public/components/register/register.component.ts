@@ -75,9 +75,9 @@ export class RegisterComponent implements OnInit {
     }
     this.apiService.register(user).
       subscribe(res => {
-        if (res) {
+        if (Object.keys(res).length > 0) {
           this.toastrService.success('Register Successfully!', 'Success');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/public/login']);
         } else {
 
         }
